@@ -272,8 +272,7 @@ export default function HeroSection() {
               VISUAL<br/>THINKER
             </h3>
             <Link 
-              href="https://www.linkedin.com/in/saksham-tikekar-0778721b9"
-              target="_blank"
+              href="/projects"
               className="btn-liquid px-4 py-2 border border-white/20 text-white rounded-full font-bold pointer-events-auto text-[10px] md:text-base inline-block"
             >
               Work &rarr;
