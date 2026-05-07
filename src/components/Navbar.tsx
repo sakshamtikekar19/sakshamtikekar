@@ -36,25 +36,12 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-xl border-b border-black/5 px-6 py-1 pointer-events-auto">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-xl border-b border-black/5 px-6 py-4 pointer-events-auto">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <Link href="/" className="flex items-center group">
-          <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105">
-            <Image 
-              src={`${BASE_PATH}/logo.png`}
-              alt="Logo"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
-        </Link>
-        
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-10">
+        {/* Nav Links */}
+        <div className="flex items-center gap-10">
           {navLinks.map((link) => (
-            <Link key={link.name} href={link.href} className="text-sm font-bold text-black/60 hover:text-blue-600 transition-colors tracking-tight uppercase">
+            <Link key={link.name} href={link.href} className="text-sm font-bold text-black hover:text-blue-600 transition-colors tracking-tight uppercase">
               {link.name}
             </Link>
           ))}
@@ -62,9 +49,9 @@ export default function Navbar() {
 
         {/* Social Icons */}
         <div className="hidden md:flex items-center gap-6">
-          <Link href="https://www.linkedin.com/in/saksham-tikekar-0778721b9" target="_blank" className="text-black/40 hover:text-blue-600 transition-colors"><LinkedInIcon size={22} /></Link>
-          <Link href="https://wa.me/918454069522" target="_blank" className="text-black/40 hover:text-green-600 transition-colors"><MessageCircle size={22} /></Link>
-          <Link href="mailto:saksham.tikekar19@gmail.com" className="text-black/40 hover:text-black transition-colors"><Mail size={22} /></Link>
+          <Link href="https://www.linkedin.com/in/saksham-tikekar-0778721b9" target="_blank" className="text-black hover:text-blue-600 transition-colors"><LinkedInIcon size={22} /></Link>
+          <Link href="https://wa.me/918454069522" target="_blank" className="text-black hover:text-green-600 transition-colors"><MessageCircle size={22} /></Link>
+          <Link href="mailto:saksham.tikekar19@gmail.com" className="text-black hover:text-gray-600 transition-colors"><Mail size={22} /></Link>
         </div>
 
         {/* Mobile Toggle */}
