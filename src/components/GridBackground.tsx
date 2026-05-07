@@ -1,16 +1,23 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function GridBackground() {
+  const { scrollYProgress } = useScroll();
+  const yParallax = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
+  const rotateParallax = useTransform(scrollYProgress, [0, 1], [0, 5]);
+
   return (
     <div className="fixed inset-0 -z-20 overflow-hidden pointer-events-none bg-[#020202]">
       {/* Mesh Gradient */}
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-900/10 rounded-full blur-[120px]" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-cyan-900/10 rounded-full blur-[120px]" />
       
-      {/* Global Honeycomb Pattern */}
-      <div className="absolute inset-0 opacity-[0.04]">
+      {/* Global Honeycomb Pattern with Parallax */}
+      <motion.div 
+        style={{ y: yParallax, rotate: rotateParallax }}
+        className="absolute inset-[-10%] opacity-[0.04]"
+      >
         <svg width="100%" height="100%" className="absolute inset-0">
           <defs>
             <pattern id="global-hex" width="50" height="43.4" patternUnits="userSpaceOnUse" patternTransform="scale(1.5)">
@@ -19,7 +26,7 @@ export default function GridBackground() {
           </defs>
           <rect width="100%" height="100%" fill="url(#global-hex)" className="text-blue-500" />
         </svg>
-      </div>
+      </motion.div>
 
       {/* Subtle Binary Streams */}
       <div className="absolute inset-0 opacity-[0.02] select-none font-mono text-[9px] text-blue-400">

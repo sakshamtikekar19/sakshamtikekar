@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { useRef } from "react";
 
 interface ProjectProps {
   title: string;
@@ -13,8 +14,18 @@ interface ProjectProps {
 }
 
 export default function ProjectCard({ title, description, tech, link, image }: ProjectProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+
   return (
     <motion.div
+      ref={containerRef}
+      style={{ y }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
