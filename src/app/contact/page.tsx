@@ -82,32 +82,32 @@ export default function ContactPage() {
                   <input
                     type="text"
                     id="name"
-                    placeholder="John Doe"
-                    className="p-4 rounded-xl bg-muted border border-border focus:border-accent focus:outline-none transition-colors"
+                    placeholder="Your Name"
+                    className="p-4 rounded-xl bg-white/[0.03] border border-white/10 focus:border-blue-500 focus:outline-none transition-colors text-white"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Email Address</label>
+                  <label htmlFor="email" className="text-sm font-bold uppercase tracking-widest text-white/40">Email Address</label>
                   <input
                     type="email"
                     id="email"
-                    placeholder="john@example.com"
-                    className="p-4 rounded-xl bg-muted border border-border focus:border-accent focus:outline-none transition-colors"
+                    placeholder="your@email.com"
+                    className="p-4 rounded-xl bg-white/[0.03] border border-white/10 focus:border-blue-500 focus:outline-none transition-colors text-white"
                   />
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Message</label>
+                <label htmlFor="message" className="text-sm font-bold uppercase tracking-widest text-white/40">Message</label>
                 <textarea
                   id="message"
                   rows={6}
-                  placeholder="Tell me about your project..."
-                  className="p-4 rounded-xl bg-muted border border-border focus:border-accent focus:outline-none transition-colors resize-none"
+                  placeholder="Describe your project or goals..."
+                  className="p-4 rounded-xl bg-white/[0.03] border border-white/10 focus:border-blue-500 focus:outline-none transition-colors resize-none text-white"
                 />
               </div>
               <button
                 type="submit"
-                className="flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-bold rounded-xl hover:bg-accent/90 active:scale-95 transition-all"
+                className="flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 text-white font-black rounded-xl hover:bg-blue-500 active:scale-95 transition-all uppercase tracking-widest text-xs"
               >
                 Send Message <Send size={18} />
               </button>
