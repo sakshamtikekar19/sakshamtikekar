@@ -285,7 +285,7 @@ export default function HeroSection() {
             </h3>
             <Link 
               href="/projects"
-              className="btn-liquid px-4 py-2 border border-white/20 text-white rounded-full font-bold pointer-events-auto text-[10px] md:text-base inline-block"
+              className="btn-liquid px-4 py-2 border border-white/20 text-white rounded-full font-bold pointer-events-auto text-[10px] md:text-base inline-block font-space"
             >
               Work &rarr;
             </Link>
@@ -302,7 +302,7 @@ export default function HeroSection() {
             <Link 
               href="https://wa.me/918454069522"
               target="_blank"
-              className="btn-liquid px-4 py-2 bg-blue-600 text-white rounded-full font-bold pointer-events-auto text-[10px] md:text-base inline-block"
+              className="btn-liquid px-4 py-2 border border-white/20 text-white rounded-full font-bold pointer-events-auto text-[10px] md:text-base inline-block font-space"
             >
               Hire Me
             </Link>
