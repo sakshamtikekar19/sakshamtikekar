@@ -36,11 +36,11 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-xl border-b border-black/5 px-6 py-2 pointer-events-auto">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-xl border-b border-black/5 px-6 py-1 pointer-events-auto">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center group">
-          <div className="relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105">
+          <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105">
             <Image 
               src={`${BASE_PATH}/logo.png`}
               alt="Logo"
