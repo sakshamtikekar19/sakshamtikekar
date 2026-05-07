@@ -3,7 +3,24 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Linkedin, MessageCircle, Mail } from "lucide-react";
+import { Menu, X, MessageCircle, Mail } from "lucide-react";
+
+const LinkedInIcon = ({ size = 20 }: { size?: number }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
 
 const navLinks = [
   { name: "About", href: "/about" },
@@ -39,7 +56,7 @@ export default function Navbar() {
 
         {/* Social Icons */}
         <div className="hidden md:flex items-center gap-5">
-          <Link href="https://linkedin.com" target="_blank" className="text-white/40 hover:text-blue-500 transition-colors"><Linkedin size={20} /></Link>
+          <Link href="https://linkedin.com" target="_blank" className="text-white/40 hover:text-blue-500 transition-colors"><LinkedInIcon size={20} /></Link>
           <Link href="https://wa.me/your-number" target="_blank" className="text-white/40 hover:text-green-500 transition-colors"><MessageCircle size={20} /></Link>
           <Link href="mailto:your@email.com" className="text-white/40 hover:text-white transition-colors"><Mail size={20} /></Link>
         </div>
@@ -73,7 +90,7 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="flex gap-6 pt-4 border-t w-full justify-center border-white/10">
-              <Link href="https://linkedin.com" target="_blank" className="text-white/40 hover:text-blue-500"><Linkedin size={24} /></Link>
+              <Link href="https://linkedin.com" target="_blank" className="text-white/40 hover:text-blue-500"><LinkedInIcon size={24} /></Link>
               <Link href="https://wa.me/your-number" target="_blank" className="text-white/40 hover:text-green-500"><MessageCircle size={24} /></Link>
               <Link href="mailto:your@email.com" className="text-white/40 hover:text-white"><Mail size={24} /></Link>
             </div>
