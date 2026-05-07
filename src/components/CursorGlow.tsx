@@ -22,17 +22,17 @@ export default function CursorGlow() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
 
+  const background = useTransform(
+    [springX, springY],
+    ([x, y]) => `radial-gradient(circle 400px at ${x}px ${y}px, rgba(37, 99, 235, 0.08), transparent 80%)`
+  );
+
   if (!mounted) return null;
 
   return (
     <motion.div
       className="fixed inset-0 pointer-events-none z-[60] hidden md:block"
-      style={{
-        background: useTransform(
-          [springX, springY],
-          ([x, y]) => `radial-gradient(circle 400px at ${x}px ${y}px, rgba(37, 99, 235, 0.08), transparent 80%)`
-        ),
-      }}
+      style={{ background }}
     />
   );
 }
