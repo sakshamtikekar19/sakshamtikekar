@@ -26,6 +26,7 @@ const LinkedInIcon = ({ size = 20 }: { size?: number }) => (
 );
 
 const navLinks = [
+  { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Featured", href: "/#featured" },
   { name: "Projects", href: "/projects" },
