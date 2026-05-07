@@ -33,10 +33,15 @@ export default function ProjectCard({ title, description, tech, link, image }: P
       className="group relative overflow-hidden rounded-3xl border border-border bg-card/50 hover:border-accent/50 transition-all"
     >
       <div className="aspect-[16/10] relative overflow-hidden">
-        {/* Placeholder for project image */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950 to-black flex items-center justify-center p-8">
-           <h3 className="text-xl font-black opacity-20 select-none text-center px-4">{title}</h3>
-        </div>
+        {/* Project Image */}
+        <Image
+          src={`/sakshamtikekar${image}`}
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500" />
+        
         <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-md">
           <a
             href={link}
