@@ -59,9 +59,65 @@ const DigitalDust = ({ count = 1200, tiltX, tiltY }: { count?: number, tiltX: an
   );
 };
 
+// --- Scanner Shader ---
+const ScannerMaterial = shaderMaterial(
+  {
+    uTexture: null,
+    uMouse: new THREE.Vector2(0.5, 0.5),
+    uHover: 0,
+    uTime: 0,
+  },
+  // Vertex
+  `
+  varying vec2 vUv;
+  void main() {
+    vUv = uv;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  }
+  `,
+  // Fragment
+  `
+  varying vec2 vUv;
+  uniform sampler2D uTexture;
+  uniform vec2 uMouse;
+  uniform float uHover;
+  uniform float uTime;
+
+  void main() {
+    vec4 color = texture2D(uTexture, vUv);
+    
+    // Distance from mouse to current pixel
+    float dist = distance(vUv, uMouse);
+    float radius = 0.15;
+    float edge = 0.05;
+    
+    // Smooth circle mask
+    float mask = 1.0 - smoothstep(radius - edge, radius + edge, dist);
+    mask *= uHover;
+
+    // Cyan "Scanner" effect
+    vec3 scannerColor = color.rgb * vec3(0.5, 1.2, 1.5);
+    
+    // Scanline effect inside circle
+    float scanline = sin(vUv.y * 100.0 + uTime * 10.0) * 0.1 + 0.9;
+    scannerColor *= scanline;
+    
+    // Border of the scanner
+    float border = smoothstep(radius - 0.005, radius, dist) * (1.0 - smoothstep(radius, radius + 0.005, dist));
+    vec3 finalColor = mix(color.rgb, scannerColor, mask);
+    finalColor += border * vec3(0.0, 0.8, 1.0) * uHover;
+
+    gl_FragColor = vec4(finalColor, color.a);
+  }
+  `
+);
+
+extend({ ScannerMaterial });
+
 // --- Portrait Plane ---
 const PortraitPlane = ({ textureUrl, onHoverChange, scrollYProgress, tiltX, tiltY }: { textureUrl: string, onHoverChange: (hovered: boolean) => void, scrollYProgress: any, tiltX: any, tiltY: any }) => {
   const meshRef = useRef<THREE.Mesh>(null!);
+  const matRef = useRef<any>(null!);
   const texture = useTexture(textureUrl);
   const { viewport } = useThree();
   const isMobile = viewport.width < 5;
@@ -69,6 +125,16 @@ const PortraitPlane = ({ textureUrl, onHoverChange, scrollYProgress, tiltX, tilt
   useFrame((state) => {
     const { x, y } = state.mouse;
     
+    // Map mouse [-1, 1] to UV [0, 1]
+    const mouseX = (x + 1) / 2;
+    const mouseY = (y + 1) / 2;
+    
+    if (matRef.current) {
+      matRef.current.uMouse.lerp(new THREE.Vector2(mouseX, mouseY), 0.1);
+      matRef.current.uHover = THREE.MathUtils.lerp(matRef.current.uHover, 1, 0.1);
+      matRef.current.uTime = state.clock.elapsedTime;
+    }
+
     // Merge mouse and gyro
     const targetRotX = isMobile ? -tiltY.get() * 0.1 : -y * 0.15;
     const targetRotY = isMobile ? tiltX.get() * 0.1 : x * 0.15;
@@ -87,7 +153,8 @@ const PortraitPlane = ({ textureUrl, onHoverChange, scrollYProgress, tiltX, tilt
       position={[0, isMobile ? 0.2 : 0, 0]}
     >
       <planeGeometry args={[4, 5.5]} />
-      <meshStandardMaterial map={texture} transparent={true} roughness={0} metalness={0} />
+      {/* @ts-ignore */}
+      <scannerMaterial ref={matRef} uTexture={texture} transparent={true} />
     </mesh>
   );
 };
