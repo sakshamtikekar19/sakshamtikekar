@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useState, useMemo, Suspense } from "react";
+import Link from "next/link";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Float, Environment, useTexture, Points, PointMaterial, Text } from "@react-three/drei";
 import * as THREE from "three";
