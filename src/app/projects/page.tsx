@@ -15,9 +15,14 @@ export default function ProjectsPage() {
           align="center"
         />
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {portfolioData.projects.map((project, index) => (
-            <ProjectCard key={project.title} {...project} />
+            <div 
+              key={project.title} 
+              className={index % 3 === 1 ? "lg:mt-12" : index % 3 === 2 ? "lg:mt-24" : ""}
+            >
+              <ProjectCard {...project} />
+            </div>
           ))}
         </div>
 
