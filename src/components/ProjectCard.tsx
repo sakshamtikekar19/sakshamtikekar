@@ -32,13 +32,13 @@ export default function ProjectCard({ title, description, tech, link, image }: P
       transition={{ duration: 0.5 }}
       className="group relative overflow-hidden rounded-3xl border border-border bg-card/50 hover:border-accent/50 transition-all"
     >
-      <div className="aspect-[16/10] relative overflow-hidden">
+      <div className="aspect-[16/10] relative overflow-hidden bg-[#0a0a0a]">
         {/* Project Image */}
         <Image
           src={`/sakshamtikekar${image}`}
           alt={title}
           fill
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
+          className="object-contain transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500" />
         
