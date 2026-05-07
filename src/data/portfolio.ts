@@ -59,6 +59,13 @@ export const portfolioData = {
       tech: ["AI Chatbot", "Next.js", "Supabase"],
       link: "https://sakshamtikekar19.github.io/AI-chatbot-gym/",
       image: "/projects/wellness-coach.png"
+    },
+    {
+      title: "Gamers Hideout",
+      description: "A dynamic gaming cafe platform with high-energy visuals and integrated community hub features.",
+      tech: ["React.js", "Framer Motion", "UI/UX"],
+      link: "https://sakshamtikekar19.github.io/gamers-hideout/",
+      image: "/projects/gaming-cafe.png"
     }
   ],
   socials: {
