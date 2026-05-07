@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 flex flex-col items-center">
         <div className="text-center">
           <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-black mb-4">
-            Digital Architect, Designer & AI Solutionist
+            Digital Architect, Designer & AI Specialist
           </p>
           
           <div className="flex gap-8 mb-4 justify-center">

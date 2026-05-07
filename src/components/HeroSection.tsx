@@ -265,7 +265,7 @@ export default function HeroSection() {
                     maxWidth={isMobile ? 2.5 : 5}
                     textAlign="center"
                   >
-                    FULL STACK DEVELOPER / DESIGNER / AI SOLUTION
+                    FULL STACK DEVELOPER / DESIGNER / AI SPECIALIST
                   </Text>
                 </group>
               </group>
