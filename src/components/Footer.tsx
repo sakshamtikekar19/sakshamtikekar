@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import NextImage from "next/image";
 
 const BASE_PATH = '/sakshamtikekar';
 
@@ -13,10 +13,10 @@ export default function Footer() {
           </p>
           
           <div className="flex gap-8 mb-6 justify-center">
-            <Link key="footer-home" href="/" className="text-[10px] font-black uppercase tracking-widest text-black hover:text-blue-600 transition-colors">Home</Link>
-            <Link key="footer-about" href="/about" className="text-[10px] font-black uppercase tracking-widest text-black hover:text-blue-600 transition-colors">About</Link>
-            <Link key="footer-projects" href="/projects" className="text-[10px] font-black uppercase tracking-widest text-black hover:text-blue-600 transition-colors">Work</Link>
-            <Link key="footer-contact" href="/contact" className="text-[10px] font-black uppercase tracking-widest text-black hover:text-blue-600 transition-colors">Contact</Link>
+            <Link key="footer-home" href="/" className="text-[10px] font-black uppercase tracking-widest text-black hover:text-blue-600 transition-colors font-space">Home</Link>
+            <Link key="footer-about" href="/about" className="text-[10px] font-black uppercase tracking-widest text-black hover:text-blue-600 transition-colors font-space">About</Link>
+            <Link key="footer-projects" href="/projects" className="text-[10px] font-black uppercase tracking-widest text-black hover:text-blue-600 transition-colors font-space">Work</Link>
+            <Link key="footer-contact" href="/contact" className="text-[10px] font-black uppercase tracking-widest text-black hover:text-blue-600 transition-colors font-space">Contact</Link>
           </div>
           
           <p className="text-xs text-black/60 font-medium">

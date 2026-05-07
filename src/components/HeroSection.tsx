@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect, useState, useMemo, Suspense } from "react";
 import Link from "next/link";
+import NextImage from "next/image";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Float, Environment, useTexture, Points, PointMaterial, Text } from "@react-three/drei";
 import * as THREE from "three";
@@ -221,7 +222,7 @@ export default function HeroSection() {
 
       {/* Instant Placeholder Image */}
       <div className="absolute inset-0 z-0 flex items-center justify-center opacity-40 blur-sm pointer-events-none">
-        <Image 
+        <NextImage 
           src={`${BASE_PATH}/saksham.png`}
           alt="Portrait Placeholder"
           width={800}
@@ -232,7 +233,7 @@ export default function HeroSection() {
       </div>
 
       {/* 3D Scene */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
+      <div className="absolute inset-0 z-10 pointer-events-none" suppressHydrationWarning>
         <Canvas 
           shadows 
           camera={{ position: [0, 0, 8], fov: 50 }}
