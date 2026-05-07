@@ -3,8 +3,8 @@
 import React, { useRef, useEffect, useState, useMemo, Suspense } from "react";
 import Link from "next/link";
 import NextImage from "next/image";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Float, Environment, useTexture, Points, PointMaterial, Text } from "@react-three/drei";
+import { Canvas, useFrame, useThree, extend } from "@react-three/fiber";
+import { Float, Environment, useTexture, Points, PointMaterial, Text, shaderMaterial } from "@react-three/drei";
 import * as THREE from "three";
 import { motion, useScroll, useTransform, AnimatePresence, useSpring, useMotionValue } from "framer-motion";
 import gsap from "gsap";
@@ -112,7 +112,9 @@ const ScannerMaterial = shaderMaterial(
   `
 );
 
-extend({ ScannerMaterial });
+if (typeof window !== "undefined") {
+  extend({ ScannerMaterial });
+}
 
 // --- Portrait Plane ---
 const PortraitPlane = ({ textureUrl, onHoverChange, scrollYProgress, tiltX, tiltY }: { textureUrl: string, onHoverChange: (hovered: boolean) => void, scrollYProgress: any, tiltX: any, tiltY: any }) => {
