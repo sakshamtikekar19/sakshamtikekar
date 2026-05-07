@@ -195,13 +195,32 @@ export default function HeroSection() {
       }
     };
 
+    const requestPermission = async () => {
+      if (typeof DeviceOrientationEvent !== 'undefined' && 
+          typeof (DeviceOrientationEvent as any).requestPermission === 'function') {
+        try {
+          const permission = await (DeviceOrientationEvent as any).requestPermission();
+          if (permission === 'granted') {
+            window.addEventListener("deviceorientation", handleOrientation, { passive: true });
+          }
+        } catch (error) {
+          console.error("Orientation permission denied:", error);
+        }
+      } else {
+        window.addEventListener("deviceorientation", handleOrientation, { passive: true });
+      }
+    };
+
+    window.addEventListener("click", requestPermission, { once: true });
+    window.addEventListener("touchstart", requestPermission, { once: true });
     window.addEventListener("mousemove", onMouseMove, { passive: true });
-    window.addEventListener("deviceorientation", handleOrientation, { passive: true });
     
     return () => {
       window.removeEventListener("resize", checkMobile);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("deviceorientation", handleOrientation);
+      window.removeEventListener("click", requestPermission);
+      window.removeEventListener("touchstart", requestPermission);
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, [cursorX, cursorY, isMobile, tiltX, tiltY]);
