@@ -271,7 +271,13 @@ export default function HeroSection() {
             >
               VISUAL<br/>THINKER
             </h3>
-            <button className="btn-liquid px-4 py-2 border border-white/20 text-white rounded-full font-bold pointer-events-auto text-[10px] md:text-base">Work &rarr;</button>
+            <Link 
+              href="https://www.linkedin.com/in/saksham-tikekar-0778721b9"
+              target="_blank"
+              className="btn-liquid px-4 py-2 border border-white/20 text-white rounded-full font-bold pointer-events-auto text-[10px] md:text-base inline-block"
+            >
+              Work &rarr;
+            </Link>
           </motion.div>
 
           <motion.div className={`transition-all duration-500 ${isMobile ? "absolute bottom-12 right-0 text-right" : "md:absolute md:bottom-0 md:right-0"}`}>
@@ -282,7 +288,13 @@ export default function HeroSection() {
             >
               &lt;FULL<br/>STACK/&gt;
             </h3>
-            <button className="btn-liquid px-4 py-2 bg-blue-600 text-white rounded-full font-bold pointer-events-auto text-[10px] md:text-base">Hire Me</button>
+            <Link 
+              href="https://wa.me/918454069522"
+              target="_blank"
+              className="btn-liquid px-4 py-2 bg-blue-600 text-white rounded-full font-bold pointer-events-auto text-[10px] md:text-base inline-block"
+            >
+              Hire Me
+            </Link>
           </motion.div>
         </div>
 

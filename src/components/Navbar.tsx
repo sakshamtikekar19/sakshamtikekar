@@ -56,9 +56,9 @@ export default function Navbar() {
 
         {/* Social Icons */}
         <div className="hidden md:flex items-center gap-5">
-          <Link href="https://linkedin.com" target="_blank" className="text-white/40 hover:text-blue-500 transition-colors"><LinkedInIcon size={20} /></Link>
-          <Link href="https://wa.me/your-number" target="_blank" className="text-white/40 hover:text-green-500 transition-colors"><MessageCircle size={20} /></Link>
-          <Link href="mailto:your@email.com" className="text-white/40 hover:text-white transition-colors"><Mail size={20} /></Link>
+          <Link href="https://www.linkedin.com/in/saksham-tikekar-0778721b9" target="_blank" className="text-white/40 hover:text-blue-500 transition-colors"><LinkedInIcon size={20} /></Link>
+          <Link href="https://wa.me/918454069522" target="_blank" className="text-white/40 hover:text-green-500 transition-colors"><MessageCircle size={20} /></Link>
+          <Link href="mailto:saksham.tikekar19@gmail.com" className="text-white/40 hover:text-white transition-colors"><Mail size={20} /></Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -90,9 +90,9 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="flex gap-6 pt-4 border-t w-full justify-center border-white/10">
-              <Link href="https://linkedin.com" target="_blank" className="text-white/40 hover:text-blue-500"><LinkedInIcon size={24} /></Link>
-              <Link href="https://wa.me/your-number" target="_blank" className="text-white/40 hover:text-green-500"><MessageCircle size={24} /></Link>
-              <Link href="mailto:your@email.com" className="text-white/40 hover:text-white"><Mail size={24} /></Link>
+              <Link href="https://www.linkedin.com/in/saksham-tikekar-0778721b9" target="_blank" className="text-white/40 hover:text-blue-500"><LinkedInIcon size={24} /></Link>
+              <Link href="https://wa.me/918454069522" target="_blank" className="text-white/40 hover:text-green-500"><MessageCircle size={24} /></Link>
+              <Link href="mailto:saksham.tikekar19@gmail.com" className="text-white/40 hover:text-white"><Mail size={24} /></Link>
             </div>
           </motion.div>
         )}
