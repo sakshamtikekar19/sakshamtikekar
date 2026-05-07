@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GridBackground from "@/components/GridBackground";
-import ScrollToTop from "@/components/ScrollToTop";
+import WhatsAppCTA from "@/components/WhatsAppCTA";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en" className="dark scroll-smooth">
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased bg-background text-foreground selection:bg-accent/30`}>
         <GridBackground />
-        <ScrollToTop />
+        <WhatsAppCTA />
         <Navbar />
         <main className="flex-grow">
           {children}
