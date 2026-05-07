@@ -31,6 +31,34 @@ export const portfolioData = {
       tech: ["WordPress", "Elementor", "Branding"],
       link: "https://drsonalshahcosmeticaindia.com",
       image: "/projects/sonal-shah.png"
+    },
+    {
+      title: "AI Smile Simulator",
+      description: "A high-fidelity dental simulation engine that provides clinical-grade teeth whitening and orthodontic previews.",
+      tech: ["React.js", "Three.js", "AI/WebGL"],
+      link: "https://sakshamtikekar19.github.io/smile-dental/",
+      image: "/projects/smile-simulator.png"
+    },
+    {
+      title: "Spartalife Gym",
+      description: "An AI-powered fitness ecosystem featuring integrated wellness tracking and high-conversion landing pages.",
+      tech: ["Next.js", "AI Integration", "Tailwind CSS"],
+      link: "https://sakshamtikekar19.github.io/Spartalife/",
+      image: "/projects/spartalife.png"
+    },
+    {
+      title: "The Serenade Town",
+      description: "A luxury private theatre landing page with an immersive visual experience and booking integration.",
+      tech: ["React.js", "Framer Motion", "UI/UX"],
+      link: "https://sakshamtikekar19.github.io/the-serenade-town/",
+      image: "/projects/serenade.png"
+    },
+    {
+      title: "AI Wellness Coach",
+      description: "An intelligent chatbot-driven wellness platform providing personalized fitness and nutrition advice.",
+      tech: ["AI Chatbot", "Next.js", "Supabase"],
+      link: "https://sakshamtikekar19.github.io/AI-chatbot-gym/",
+      image: "/projects/wellness-coach.png"
     }
   ],
   socials: {
