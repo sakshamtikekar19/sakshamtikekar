@@ -19,18 +19,46 @@ export const portfolioData = {
   ],
   projects: [
     {
-      title: "Flex The Fitness House",
-      description: "SEO-focused fitness website with optimized UI/UX and lead generation. Built to provide a seamless experience for fitness enthusiasts.",
-      tech: ["WordPress", "Elementor", "SEO"],
+      title: "Clinic Solutions",
+      description: "Comprehensive digital platforms for clinics, featuring patient management systems and streamlined medical consultation booking flows.",
+      tech: ["WordPress", "SEO", "Branding"],
+      link: "https://drsonalshahcosmeticaindia.com",
+      image: "/projects/sonal-shah.png"
+    },
+    {
+      title: "Gym & Fitness",
+      description: "High-performance fitness ecosystems optimized for lead generation, member engagement, and SEO visibility.",
+      tech: ["WordPress", "Elementor", "UI/UX"],
       link: "https://flexthefitnesshouse.com",
       image: "/projects/flex-fitness.png"
     },
     {
-      title: "Dr Sonal Shah Cosmetica India",
-      description: "A premium clinic website with service pages, branding, and a user-friendly structure for medical consultations.",
-      tech: ["WordPress", "Elementor", "Branding"],
-      link: "https://drsonalshahcosmeticaindia.com",
-      image: "/projects/sonal-shah.png"
+      title: "Restaurant Systems",
+      description: "Interactive hospitality websites with integrated reservation systems and high-conversion menu designs.",
+      tech: ["Next.js", "Tailwind CSS", "Supabase"],
+      link: "#",
+      image: "/projects/restaurant.png"
+    },
+    {
+      title: "Business Agency",
+      description: "Premium corporate identity platforms for agencies, focused on portfolio showcasing and strategic client acquisition.",
+      tech: ["React.js", "Framer Motion", "TypeScript"],
+      link: "#",
+      image: "/projects/agency.png"
+    },
+    {
+      title: "Real Estate Portals",
+      description: "Advanced property listing engines with dynamic search filters and high-fidelity visual walkthroughs.",
+      tech: ["Next.js", "Supabase", "Maps API"],
+      link: "#",
+      image: "/projects/real-estate.png"
+    },
+    {
+      title: "Media Agency",
+      description: "Data-driven media hubs optimized for content distribution, analytics tracking, and high-impact digital storytelling.",
+      tech: ["Next.js", "AI Automation", "SEO"],
+      link: "#",
+      image: "/projects/media.png"
     }
   ],
   socials: {
