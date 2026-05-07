@@ -87,7 +87,7 @@ const PortraitPlane = ({ textureUrl, onHoverChange, scrollYProgress, tiltX, tilt
       position={[0, isMobile ? 0.2 : 0, 0]}
     >
       <planeGeometry args={[4, 5.5]} />
-      <meshStandardMaterial map={texture} transparent={true} roughness={0.3} metalness={0.2} />
+      <meshStandardMaterial map={texture} transparent={true} roughness={0} metalness={0} />
     </mesh>
   );
 };
@@ -220,22 +220,9 @@ export default function HeroSection() {
     >
       <div className="film-grain" />
 
-      {/* Instant Placeholder Image */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center opacity-40 blur-sm pointer-events-none">
-        <NextImage 
-          src={`${BASE_PATH}/saksham.png`}
-          alt="Portrait Placeholder"
-          width={800}
-          height={1000}
-          className="object-contain max-h-[70vh] md:max-h-[85vh]"
-          priority
-        />
-      </div>
-
       {/* 3D Scene */}
       <div className="absolute inset-0 z-10 pointer-events-none" suppressHydrationWarning>
         <Canvas 
-          shadows 
           camera={{ position: [0, 0, 8], fov: 50 }}
           dpr={[1, 1.5]}
           gl={{ 
@@ -246,8 +233,8 @@ export default function HeroSection() {
           }}
           performance={{ min: 0.5 }}
         >
-          <ambientLight intensity={0.4} />
-          <pointLight position={[0, 0, 5]} intensity={2.5} color="#3b82f6" />
+          <ambientLight intensity={0.6} />
+          <pointLight position={[0, 0, 5]} intensity={3} color="#ffffff" />
           <Suspense fallback={null}>
             <DigitalDust count={isMobile ? 400 : 800} tiltX={tiltX} tiltY={tiltY} />
             <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
