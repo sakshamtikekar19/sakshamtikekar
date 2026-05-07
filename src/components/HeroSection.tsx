@@ -259,15 +259,18 @@ export default function HeroSection() {
       {/* UI Layers */}
       <div className="relative z-20 min-h-[100svh] w-full flex flex-col items-center justify-between py-12 md:py-24 px-4 md:px-10 pointer-events-none overflow-hidden">
         
-        {/* Main Name Heading - Dynamic Scroll Response */}
+        {/* Main Name Heading - Dynamic Scroll Response & Glitch */}
         <motion.div 
           style={{ x: xTitle, scale: scaleTitle }}
-          className="text-center will-change-transform z-30 w-full mt-10 md:mt-0"
+          className="text-center will-change-transform z-30 w-full mt-10 md:mt-0 px-4"
         >
           <h1 
-            className="text-[clamp(1.5rem,7vw,6rem)] font-black tracking-tighter text-white uppercase leading-none font-space"
+            className="text-[clamp(1.8rem,8vw,7rem)] font-black tracking-tighter text-white uppercase leading-none font-space relative group cursor-default"
           >
-            SAKSHAM TIKEKAR
+            <span className="relative z-10">SAKSHAM TIKEKAR</span>
+            {/* Glitch Layers */}
+            <span className="absolute inset-0 z-0 text-blue-500 opacity-0 group-hover:opacity-70 group-hover:animate-glitch-1 translate-x-[2px] pointer-events-none">SAKSHAM TIKEKAR</span>
+            <span className="absolute inset-0 z-0 text-cyan-400 opacity-0 group-hover:opacity-70 group-hover:animate-glitch-2 translate-x-[-2px] pointer-events-none">SAKSHAM TIKEKAR</span>
           </h1>
         </motion.div>
 
