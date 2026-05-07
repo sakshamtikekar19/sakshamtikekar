@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #050505;
+  --color-foreground: #FFFFFF;
+  --color-card: #0A0A0A;
+  --color-accent: #3B82F6;
+  --color-accent-foreground: #FFFFFF;
+  --color-muted: #1F2937;
+  --color-muted-foreground: #9CA3AF;
+  --color-border: #262626;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui;
+  --font-space: var(--font-space-grotesk), sans-serif;
+  
+  --radius-lg: 1rem;
+  --radius-md: 0.75rem;
+  --radius-sm: 0.5rem;
+}
+
+:root {
+  --background: 0 0% 2%;
+  --foreground: 0 0% 100%;
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+  touch-action: pan-y;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+  
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-lg border border-white/5;
+    will-change: transform, opacity;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400;
+  }
+}
+
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3B82F6;
+}
+
+/* Glitch Effect */
+.glitch {
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.05) 0px,
+    rgba(255, 255, 255, 0.05) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  animation: glitchAnim 0.4s infinite;
+}
+
+@keyframes glitchAnim {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* Split Line Effect */
+.split-line {
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.1),
+    rgba(255,255,255,0.8),
+    rgba(255,255,255,0.1)
+  );
+  position: relative;
+}
+
+.split-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -4px;
+  width: 10px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #3b82f6,
+    transparent
+  );
+  opacity: 0.6;
+  filter: blur(6px);
+  animation: pulseGlow 2s infinite;
+}
+
+.split-line::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255,255,255,0.6),
+    transparent
+  );
+  animation: scan 3s infinite;
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.3; }
+}
+
+/* Film Grain Overlay */
+.film-grain {
+  position: fixed;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background-image: url("https://res.cloudinary.com/dq7l82uoe/image/upload/v1625400269/grain_o8o3oi.png");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 9999;
+  animation: grain 8s steps(10) infinite;
+}
+
+@keyframes grain {
+  0%, 100% { transform:translate(0, 0); }
+  10% { transform:translate(-5%, -10%); }
+  30% { transform:translate(3%, -15%); }
+  50% { transform:translate(12%, 9%); }
+  70% { transform:translate(9%, 4%); }
+  90% { transform:translate(-1%, 7%); }
+}
+
+/* Stroke Typography */
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  color: transparent;
+}
+
+/* Liquid Fill Button */
+.btn-liquid {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  will-change: transform;
+}
+
+.btn-liquid::after {
+  content: "";
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #3b82f6, #60a5fa);
+  z-index: -1;
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* --- Mobile Stability Fixes --- */
+section, .hero-container {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+@supports (min-height: 100svh) {
+  section {
+    min-height: 100svh;
+  }
+}
+
+.btn-liquid {
+  touch-action: manipulation;
+  min-height: 44px;
+}
+
+.btn-liquid:hover::after {
+  bottom: 0;
+}
+
+.btn-liquid:hover {
+  color: white;
+  border-color: transparent;
+}

@@ -1,0 +1,120 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Mail, Code2, Briefcase, Globe, MapPin, Send } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
+import { portfolioData } from "@/data/portfolio";
+
+export default function ContactPage() {
+  return (
+    <div className="pt-32 pb-24 px-6">
+      <div className="max-w-7xl mx-auto">
+        <SectionHeader 
+          title="Let's Connect" 
+          subtitle="I'm currently available for full-time roles and exciting freelance projects. Feel free to reach out for a collaboration or just a friendly hello."
+        />
+
+        <div className="grid md:grid-cols-2 gap-24">
+          {/* Contact Details */}
+          <div>
+            <div className="flex flex-col gap-12">
+              <div className="flex gap-6 items-start">
+                <div className="p-4 rounded-2xl bg-accent/10 border border-accent/20 text-accent">
+                  <Mail size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Email Me</h3>
+                  <a href={`mailto:${portfolioData.socials.email}`} className="text-muted-foreground hover:text-foreground transition-colors">
+                    {portfolioData.socials.email}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex gap-6 items-start">
+                <div className="p-4 rounded-2xl bg-accent/10 border border-accent/20 text-accent">
+                  <Briefcase size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">LinkedIn</h3>
+                  <a href={portfolioData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                    saksham-tikekar
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex gap-6 items-start">
+                <div className="p-4 rounded-2xl bg-accent/10 border border-accent/20 text-accent">
+                  <MapPin size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Location</h3>
+                  <p className="text-muted-foreground">
+                    Available worldwide (Remote)
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-16 pt-16 border-t border-border">
+              <h3 className="text-xl font-bold mb-8">Follow My Work</h3>
+              <div className="flex gap-6">
+                <a href={portfolioData.socials.github} className="p-4 rounded-full bg-muted hover:bg-accent hover:text-white transition-all">
+                  <Code2 size={24} />
+                </a>
+                <a href={portfolioData.socials.twitter} className="p-4 rounded-full bg-muted hover:bg-accent hover:text-white transition-all">
+                  <Globe size={24} />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+            className="p-10 rounded-3xl border border-border bg-card/50 backdrop-blur-sm"
+          >
+            <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="name" className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Full Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    placeholder="John Doe"
+                    className="p-4 rounded-xl bg-muted border border-border focus:border-accent focus:outline-none transition-colors"
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="email" className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="john@example.com"
+                    className="p-4 rounded-xl bg-muted border border-border focus:border-accent focus:outline-none transition-colors"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="message" className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Message</label>
+                <textarea
+                  id="message"
+                  rows={6}
+                  placeholder="Tell me about your project..."
+                  className="p-4 rounded-xl bg-muted border border-border focus:border-accent focus:outline-none transition-colors resize-none"
+                />
+              </div>
+              <button
+                type="submit"
+                className="flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-bold rounded-xl hover:bg-accent/90 active:scale-95 transition-all"
+              >
+                Send Message <Send size={18} />
+              </button>
+            </form>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+}
