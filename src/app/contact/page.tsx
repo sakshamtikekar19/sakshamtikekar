@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Code2, Briefcase, Globe, MapPin, Send } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import { portfolioData } from "@/data/portfolio";
 
+export default function ContactPage() {
   const [status, setStatus] = useState<"IDLE" | "SENDING" | "SUCCESS" | "ERROR">("IDLE");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
