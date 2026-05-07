@@ -36,37 +36,35 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#050505]/80 backdrop-blur-md border-b border-white/5 px-6 py-4 pointer-events-auto">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-xl border-b border-black/5 px-6 py-2 pointer-events-auto">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 flex items-center justify-center overflow-hidden">
+        <Link href="/" className="flex items-center group">
+          <div className="relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105">
             <Image 
               src={`${BASE_PATH}/logo.png`}
               alt="Logo"
               fill
               className="object-contain"
+              priority
             />
           </div>
-          <span className="font-bold text-lg tracking-tight text-white group-hover:text-blue-500 transition-colors">
-            Saksham Tikekar
-          </span>
         </Link>
         
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
-            <Link key={link.name} href={link.href} className="text-sm font-semibold text-white/60 hover:text-white transition-colors">
+            <Link key={link.name} href={link.href} className="text-sm font-bold text-black/60 hover:text-blue-600 transition-colors tracking-tight uppercase">
               {link.name}
             </Link>
           ))}
         </div>
 
         {/* Social Icons */}
-        <div className="hidden md:flex items-center gap-5">
-          <Link href="https://www.linkedin.com/in/saksham-tikekar-0778721b9" target="_blank" className="text-white/40 hover:text-blue-500 transition-colors"><LinkedInIcon size={20} /></Link>
-          <Link href="https://wa.me/918454069522" target="_blank" className="text-white/40 hover:text-green-500 transition-colors"><MessageCircle size={20} /></Link>
-          <Link href="mailto:saksham.tikekar19@gmail.com" className="text-white/40 hover:text-white transition-colors"><Mail size={20} /></Link>
+        <div className="hidden md:flex items-center gap-6">
+          <Link href="https://www.linkedin.com/in/saksham-tikekar-0778721b9" target="_blank" className="text-black/40 hover:text-blue-600 transition-colors"><LinkedInIcon size={22} /></Link>
+          <Link href="https://wa.me/918454069522" target="_blank" className="text-black/40 hover:text-green-600 transition-colors"><MessageCircle size={22} /></Link>
+          <Link href="mailto:saksham.tikekar19@gmail.com" className="text-black/40 hover:text-black transition-colors"><Mail size={22} /></Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -85,22 +83,22 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute top-full left-0 right-0 bg-[#050505]/95 backdrop-blur-xl border-t border-white/5 p-8 flex flex-col items-center gap-6 md:hidden shadow-2xl"
+            className="absolute top-full left-0 right-0 bg-white/98 backdrop-blur-2xl border-t border-black/5 p-8 flex flex-col items-center gap-6 md:hidden shadow-2xl"
           >
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-xl font-bold text-white hover:text-blue-500"
+                className="text-xl font-extrabold text-black hover:text-blue-600 uppercase tracking-tighter"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
               </Link>
             ))}
-            <div className="flex gap-6 pt-4 border-t w-full justify-center border-white/10">
-              <Link href="https://www.linkedin.com/in/saksham-tikekar-0778721b9" target="_blank" className="text-white/40 hover:text-blue-500"><LinkedInIcon size={24} /></Link>
-              <Link href="https://wa.me/918454069522" target="_blank" className="text-white/40 hover:text-green-500"><MessageCircle size={24} /></Link>
-              <Link href="mailto:saksham.tikekar19@gmail.com" className="text-white/40 hover:text-white"><Mail size={24} /></Link>
+            <div className="flex gap-8 pt-6 border-t w-full justify-center border-black/5">
+              <Link href="https://www.linkedin.com/in/saksham-tikekar-0778721b9" target="_blank" className="text-black/30 hover:text-blue-600"><LinkedInIcon size={28} /></Link>
+              <Link href="https://wa.me/918454069522" target="_blank" className="text-black/30 hover:text-green-600"><MessageCircle size={28} /></Link>
+              <Link href="mailto:saksham.tikekar19@gmail.com" className="text-black/30 hover:text-black"><Mail size={28} /></Link>
             </div>
           </motion.div>
         )}
