@@ -9,6 +9,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { ArrowRight } from "lucide-react";
 
+const BASE_PATH = '/sakshamtikekar';
+
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
@@ -225,7 +227,7 @@ export default function HeroSection() {
             <DigitalDust count={isMobile ? 600 : 1200} tiltX={tiltX} tiltY={tiltY} />
             <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
               <group position={[0, 0, 0]}>
-                <PortraitPlane textureUrl="/saksham.png" onHoverChange={setIsHoveringImage} scrollYProgress={scrollYProgress} tiltX={tiltX} tiltY={tiltY} />
+                <PortraitPlane textureUrl={`${BASE_PATH}/saksham.png`} onHoverChange={setIsHoveringImage} scrollYProgress={scrollYProgress} tiltX={tiltX} tiltY={tiltY} />
                 <group position={[0, isMobile ? -1.8 : -3.2, 0.5]}>
                   <Text
                     fontSize={isMobile ? 0.07 : 0.12}
