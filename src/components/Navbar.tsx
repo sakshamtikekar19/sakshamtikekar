@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -34,17 +34,32 @@ const navLinks = [
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      setTime(now.toLocaleTimeString("en-US", { hour12: false, hour: '2-digit', minute: '2-digit' }));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-xl border-b border-black/5 px-6 py-4 pointer-events-auto">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Nav Links */}
-        <div className="flex items-center gap-10">
+        {/* Nav Links - Desktop Only */}
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href} className="text-sm font-bold text-black hover:text-blue-600 transition-colors tracking-tighter uppercase font-space">
               {link.name}
             </Link>
           ))}
+        </div>
+
+        {/* Mobile Time Widget */}
+        <div className="md:hidden flex items-center gap-2 font-mono text-[10px] font-bold text-black tracking-widest bg-black/5 px-3 py-1 rounded-full">
+          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" />
+          <span>{time || "00:00"}</span>
         </div>
 
         {/* Social Icons */}

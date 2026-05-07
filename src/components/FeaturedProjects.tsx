@@ -23,7 +23,7 @@ export default function FeaturedProjects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {portfolioData.projects.map((project, index) => (
+          {portfolioData.projects.slice(0, 2).map((project, index) => (
             <div 
               key={project.title} 
               className={index % 3 === 1 ? "lg:mt-12" : index % 3 === 2 ? "lg:mt-24" : ""}
