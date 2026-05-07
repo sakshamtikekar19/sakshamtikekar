@@ -50,17 +50,17 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-xl border-b border-black/5 px-6 py-3 pointer-events-auto">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Header HUD - Left Side */}
-        <div className="flex flex-col gap-0.5 font-mono text-[7px] md:text-[8px] uppercase tracking-widest text-blue-600 leading-tight">
+        <div className="flex flex-col gap-0.5 font-mono text-[7px] md:text-[8px] uppercase tracking-widest text-black leading-tight">
           <div className="flex items-center gap-1.5">
             <span className="w-1 h-1 bg-blue-600 rounded-full animate-pulse" />
             <span className="font-bold">CORE_SYS: ACTIVE</span>
           </div>
-          <div className="flex gap-3 opacity-60 text-[6px] md:text-[7px]">
+          <div className="flex gap-3 text-[6px] md:text-[7px] font-medium">
             <span>FPS: {fps}</span>
             <span>LAT: 12ms</span>
             <span className="hidden sm:inline">V4.0</span>
           </div>
-          <div className="font-black text-black text-[8px] md:text-[9px] mt-0.5">
+          <div className="font-black text-[8px] md:text-[9px] mt-0.5">
             T: {time || "00:00:00"}
           </div>
         </div>
