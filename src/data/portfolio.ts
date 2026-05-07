@@ -27,8 +27,8 @@ export const portfolioData = {
     },
     {
       title: "Dr Sonal Shah Cosmetica India",
-      description: "A premium clinic website with service pages, branding, and a user-friendly structure for medical consultations.",
-      tech: ["WordPress", "Elementor", "Branding"],
+      description: "A high-performance medical platform with automated patient communication and secure data synchronization.",
+      tech: ["Supabase", "Twilio", "Branding"],
       link: "https://drsonalshahcosmeticaindia.com",
       image: "/projects/sonal-shah.png"
     },
@@ -48,22 +48,22 @@ export const portfolioData = {
     },
     {
       title: "The Serenade Town",
-      description: "A luxury private theatre landing page with an immersive visual experience and booking integration.",
-      tech: ["React.js", "Framer Motion", "UI/UX"],
+      description: "A luxury private theatre landing page featuring a custom integrated booking system for premium reservations.",
+      tech: ["Booking System", "React.js", "Framer Motion"],
       link: "https://sakshamtikekar19.github.io/the-serenade-town/",
       image: "/projects/serenade.png"
     },
     {
       title: "AI Wellness Coach",
-      description: "An intelligent chatbot-driven wellness platform providing personalized fitness and nutrition advice.",
-      tech: ["AI Chatbot", "Next.js", "Supabase"],
+      description: "An intelligent chatbot-driven wellness platform powered by OpenAI for personalized fitness and nutrition advice.",
+      tech: ["OpenAI", "Next.js", "Supabase"],
       link: "https://sakshamtikekar19.github.io/AI-chatbot-gym/",
       image: "/projects/wellness-coach.png"
     },
     {
       title: "Gamers Hideout",
-      description: "A dynamic gaming cafe platform with high-energy visuals and integrated community hub features.",
-      tech: ["React.js", "Framer Motion", "UI/UX"],
+      description: "A dynamic gaming cafe platform featuring a custom booking panel and administrative dashboard for facility management.",
+      tech: ["Admin Panel", "Booking System", "React.js"],
       link: "https://sakshamtikekar19.github.io/gamers-hideout/",
       image: "/projects/gaming-cafe.png"
     }
