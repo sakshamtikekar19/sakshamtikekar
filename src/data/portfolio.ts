@@ -57,7 +57,7 @@ export const portfolioData = {
       title: "AI Wellness Coach",
       description: "An intelligent chatbot-driven wellness platform powered by OpenAI for personalized fitness and nutrition advice.",
       tech: ["OpenAI", "Next.js", "Supabase"],
-      link: "https://sakshamtikekar19.github.io/AI-chatbot-gym/",
+      link: "https://ai-chatbot-gym.vercel.app/",
       image: "/projects/wellness-coach.png"
     },
     {
