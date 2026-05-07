@@ -35,6 +35,9 @@ jobs:
       - name: Disable Jekyll
         run: touch ./out/.nojekyll
         
+      - name: Debug Output Structure
+        run: ls -R ./out
+        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
