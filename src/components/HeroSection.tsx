@@ -263,11 +263,13 @@ export default function HeroSection() {
       {/* UI Layers */}
       <div className="relative z-20 min-h-[100svh] w-full flex flex-col items-center justify-between py-12 md:py-24 px-4 md:px-10 pointer-events-none overflow-hidden">
         
-        {/* Main Name Heading - Lowered on mobile to avoid header collision */}
-        <motion.div className="text-center will-change-transform z-30 w-full mt-10 md:mt-0">
+        {/* Main Name Heading - Dynamic Scroll Response */}
+        <motion.div 
+          style={{ x: useTransform(scrollYProgress, [0, 0.3], [0, 100]), scale: useTransform(scrollYProgress, [0, 0.3], [1, 1.1]) }}
+          className="text-center will-change-transform z-30 w-full mt-10 md:mt-0"
+        >
           <h1 
-            className="text-[clamp(1.5rem,7vw,6rem)] font-black tracking-tighter text-white uppercase leading-none"
-            style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' }}
+            className="text-[clamp(1.5rem,7vw,6rem)] font-black tracking-tighter text-white uppercase leading-none font-space"
           >
             SAKSHAM TIKEKAR
           </h1>
