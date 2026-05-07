@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GridBackground from "@/components/GridBackground";
 import WhatsAppCTA from "@/components/WhatsAppCTA";
-import SystemHUD from "@/components/SystemHUD";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -33,7 +32,6 @@ export default function RootLayout({
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased bg-background text-foreground selection:bg-accent/30`}>
         <GridBackground />
         <WhatsAppCTA />
-        <SystemHUD />
         <Navbar />
         <main className="flex-grow">
           {children}
