@@ -11,7 +11,7 @@ export default function FeaturedProjects() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <SectionHeader 
             title="Selected Works" 
-            subtitle="A collection of high-performance websites built for business growth and clinical excellence."
+            subtitle="Expertly crafting high-performance websites for clinics, gyms, restaurants, agencies, real estate, and media agencies."
             className="mb-0 text-left"
           />
           <Link
