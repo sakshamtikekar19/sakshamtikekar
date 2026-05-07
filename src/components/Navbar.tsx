@@ -42,7 +42,7 @@ export default function Navbar() {
         {/* Nav Links */}
         <div className="flex items-center gap-10">
           {navLinks.map((link) => (
-            <Link key={link.name} href={link.href} className="text-sm font-bold text-black hover:text-blue-600 transition-colors tracking-tight uppercase">
+            <Link key={link.name} href={link.href} className="text-sm font-bold text-black hover:text-blue-600 transition-colors tracking-tighter uppercase font-space">
               {link.name}
             </Link>
           ))}
@@ -77,7 +77,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-xl font-extrabold text-black hover:text-blue-600 uppercase tracking-tighter"
+                className="text-xl font-extrabold text-black hover:text-blue-600 uppercase tracking-tighter font-space"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}

@@ -41,6 +41,11 @@ body {
   font-feature-settings: "rlig" 1, "calt" 1;
 }
 
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-space), sans-serif;
+  letter-spacing: -0.03em;
+}
+
 @layer utilities {
   .glass {
     @apply bg-white/5 backdrop-blur-lg border border-white/10;
