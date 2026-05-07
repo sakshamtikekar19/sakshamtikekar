@@ -75,12 +75,12 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #262626;
-  border-radius: 4px;
+  background: linear-gradient(to bottom, #2563eb, #1e40af);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3B82F6;
+  background: #3b82f6;
 }
 
 /* Glitch Effect */

@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import GridBackground from "@/components/GridBackground";
 import WhatsAppCTA from "@/components/WhatsAppCTA";
 
+import CursorGlow from "@/components/CursorGlow";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -32,6 +34,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased bg-background text-foreground selection:bg-accent/30`}>
         <GridBackground />
         <WhatsAppCTA />
+        <CursorGlow />
         <Navbar />
         <main className="flex-grow">
           {children}
