@@ -22,9 +22,14 @@ export default function FeaturedProjects() {
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {portfolioData.projects.map((project) => (
-            <ProjectCard key={project.title} {...project} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {portfolioData.projects.map((project, index) => (
+            <div 
+              key={project.title} 
+              className={index % 3 === 1 ? "lg:mt-12" : index % 3 === 2 ? "lg:mt-24" : ""}
+            >
+              <ProjectCard {...project} />
+            </div>
           ))}
         </div>
       </div>
