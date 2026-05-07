@@ -66,7 +66,7 @@ export default function AboutPage() {
                  <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center font-black text-white text-xs">ST</div>
                  <div>
                    <p className="font-bold text-white uppercase tracking-widest text-xs">Saksham Tikekar</p>
-                   <p className="text-[10px] text-white/40 uppercase font-mono">Principal Developer / AI Specialist</p>
+                   <p className="text-[10px] text-white/40 uppercase font-mono tracking-tight">Full Stack Developer / Designer / AI Specialist</p>
                  </div>
                </div>
             </div>
