@@ -38,7 +38,7 @@ const techData: Record<string, { version: string; load: string }> = {
 
 export default function TechStack() {
   return (
-    <section className="py-24 px-6 bg-transparent relative z-10">
+    <section className="py-12 px-6 bg-transparent relative z-10">
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader 
           title="Core Technologies" 

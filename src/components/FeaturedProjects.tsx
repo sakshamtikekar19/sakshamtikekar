@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function FeaturedProjects() {
   return (
-    <section id="featured" className="py-32 px-6 bg-[#050505] border-t border-white/5">
+    <section id="featured" className="py-16 px-6 bg-[#050505] border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <SectionHeader 
@@ -23,7 +23,7 @@ export default function FeaturedProjects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {portfolioData.projects.slice(0, 2).map((project, index) => (
+          {portfolioData.projects.slice(0, 3).map((project, index) => (
             <div 
               key={project.title} 
               className={index % 3 === 1 ? "lg:mt-12" : index % 3 === 2 ? "lg:mt-24" : ""}

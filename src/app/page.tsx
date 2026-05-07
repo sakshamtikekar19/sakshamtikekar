@@ -14,7 +14,7 @@ export default function Home() {
       <FeaturedProjects />
 
       {/* About Brief */}
-      <section className="py-24 px-6 bg-card/50 border-y border-border">
+      <section className="py-12 px-6 bg-card/50 border-y border-border">
         <div className="max-w-4xl mx-auto flex flex-col items-center">
           <SectionHeader 
             title="From Hospitality to Full Stack" 
@@ -23,7 +23,7 @@ export default function Home() {
           />
           <Link
             href="/about"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-muted border border-border rounded-full font-bold hover:bg-card transition-all"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-muted border border-border rounded-full font-bold hover:bg-card transition-all mt-6"
           >
             Read My Full Story <ArrowRight size={18} />
           </Link>
@@ -31,7 +31,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 px-6 relative overflow-hidden">
+      <section className="py-16 px-6 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-accent/10 blur-[100px] rounded-full -z-10" />
         <div className="max-w-4xl mx-auto flex flex-col items-center">
           <SectionHeader 
@@ -41,7 +41,7 @@ export default function Home() {
           />
           <Link
             href="/contact"
-            className="flex items-center gap-3 px-10 py-5 bg-foreground text-background font-black rounded-full hover:scale-105 active:scale-95 transition-all text-xl"
+            className="flex items-center gap-3 px-10 py-5 bg-foreground text-background font-black rounded-full hover:scale-105 active:scale-95 transition-all text-xl mt-8"
           >
             <Mail size={24} />
             Get In Touch
