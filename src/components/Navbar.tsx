@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MessageCircle, Mail } from "lucide-react";
+
+const BASE_PATH = '/sakshamtikekar';
 
 const LinkedInIcon = ({ size = 20 }: { size?: number }) => (
   <svg 
@@ -37,8 +40,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-white text-black flex items-center justify-center font-black text-xl rounded-sm">
-            ST
+          <div className="relative w-10 h-10 flex items-center justify-center overflow-hidden">
+            <Image 
+              src={`${BASE_PATH}/logo.png`}
+              alt="Logo"
+              fill
+              className="object-contain"
+            />
           </div>
           <span className="font-bold text-lg tracking-tight text-white group-hover:text-blue-500 transition-colors">
             Saksham Tikekar
