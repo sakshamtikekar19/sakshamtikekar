@@ -219,13 +219,36 @@ export default function HeroSection() {
     >
       <div className="film-grain" />
 
+      {/* Instant Placeholder Image */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center opacity-40 blur-sm pointer-events-none">
+        <Image 
+          src={`${BASE_PATH}/saksham.png`}
+          alt="Portrait Placeholder"
+          width={800}
+          height={1000}
+          className="object-contain max-h-[70vh] md:max-h-[85vh]"
+          priority
+        />
+      </div>
+
       {/* 3D Scene */}
       <div className="absolute inset-0 z-10 pointer-events-none">
-        <Canvas shadows camera={{ position: [0, 0, 8], fov: 50 }}>
+        <Canvas 
+          shadows 
+          camera={{ position: [0, 0, 8], fov: 50 }}
+          dpr={[1, 1.5]}
+          gl={{ 
+            antialias: true,
+            powerPreference: "high-performance",
+            alpha: true,
+            preserveDrawingBuffer: false
+          }}
+          performance={{ min: 0.5 }}
+        >
           <ambientLight intensity={0.4} />
           <pointLight position={[0, 0, 5]} intensity={2.5} color="#3b82f6" />
           <Suspense fallback={null}>
-            <DigitalDust count={isMobile ? 600 : 1200} tiltX={tiltX} tiltY={tiltY} />
+            <DigitalDust count={isMobile ? 400 : 800} tiltX={tiltX} tiltY={tiltY} />
             <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
               <group position={[0, 0, 0]}>
                 <PortraitPlane textureUrl={`${BASE_PATH}/saksham.png`} onHoverChange={setIsHoveringImage} scrollYProgress={scrollYProgress} tiltX={tiltX} tiltY={tiltY} />
