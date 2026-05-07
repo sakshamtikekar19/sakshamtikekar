@@ -72,6 +72,6 @@ export const portfolioData = {
     github: "https://github.com",
     linkedin: "https://linkedin.com",
     twitter: "https://twitter.com",
-    email: "tikekarsaksham@gmail.com"
+    email: "saksham.tikekar19@gmail.com"
   }
 };
