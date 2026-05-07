@@ -75,13 +75,19 @@ export default function ContactPage() {
             transition={{ delay: 0.2 }}
             className="p-10 rounded-3xl border border-border bg-card/50 backdrop-blur-sm"
           >
-            <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+            <form 
+              action="https://formspree.io/f/saksham.tikekar19@gmail.com"
+              method="POST"
+              className="flex flex-col gap-6"
+            >
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="name" className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Full Name</label>
+                  <label htmlFor="name" className="text-sm font-bold uppercase tracking-widest text-white/40">Full Name</label>
                   <input
                     type="text"
                     id="name"
+                    name="name"
+                    required
                     placeholder="Your Name"
                     className="p-4 rounded-xl bg-white/[0.03] border border-white/10 focus:border-blue-500 focus:outline-none transition-colors text-white"
                   />
@@ -91,6 +97,8 @@ export default function ContactPage() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    required
                     placeholder="your@email.com"
                     className="p-4 rounded-xl bg-white/[0.03] border border-white/10 focus:border-blue-500 focus:outline-none transition-colors text-white"
                   />
@@ -100,6 +108,8 @@ export default function ContactPage() {
                 <label htmlFor="message" className="text-sm font-bold uppercase tracking-widest text-white/40">Message</label>
                 <textarea
                   id="message"
+                  name="message"
+                  required
                   rows={6}
                   placeholder="Describe your project or goals..."
                   className="p-4 rounded-xl bg-white/[0.03] border border-white/10 focus:border-blue-500 focus:outline-none transition-colors resize-none text-white"
