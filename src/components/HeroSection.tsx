@@ -171,6 +171,10 @@ export default function HeroSection() {
   const springCursorY = useSpring(cursorY, { damping: 30, stiffness: 300 });
 
   const { scrollYProgress } = useScroll();
+  
+  // Parallax Transforms (Must be top-level)
+  const xTitle = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
+  const scaleTitle = useTransform(scrollYProgress, [0, 0.3], [1, 1.1]);
 
   useEffect(() => {
     setMounted(true);
@@ -185,8 +189,6 @@ export default function HeroSection() {
     
     const handleOrientation = (e: DeviceOrientationEvent) => {
       if (!isMobile) return;
-      // Gamma is left to right tilt (-90 to 90)
-      // Beta is front to back tilt (-180 to 180)
       if (e.gamma !== null && e.beta !== null) {
         tiltX.set(THREE.MathUtils.clamp(e.gamma / 30, -1, 1));
         tiltY.set(THREE.MathUtils.clamp((e.beta - 45) / 30, -1, 1));
@@ -196,12 +198,6 @@ export default function HeroSection() {
     window.addEventListener("mousemove", onMouseMove, { passive: true });
     window.addEventListener("deviceorientation", handleOrientation, { passive: true });
     
-    // Handle iOS permission
-    if (typeof (DeviceOrientationEvent as any).requestPermission === 'function') {
-      (DeviceOrientationEvent as any).requestPermission()
-        .catch((e: any) => console.log('Gyro permission denied', e));
-    }
-
     return () => {
       window.removeEventListener("resize", checkMobile);
       window.removeEventListener("mousemove", onMouseMove);
@@ -265,7 +261,7 @@ export default function HeroSection() {
         
         {/* Main Name Heading - Dynamic Scroll Response */}
         <motion.div 
-          style={{ x: useTransform(scrollYProgress, [0, 0.3], [0, 100]), scale: useTransform(scrollYProgress, [0, 0.3], [1, 1.1]) }}
+          style={{ x: xTitle, scale: scaleTitle }}
           className="text-center will-change-transform z-30 w-full mt-10 md:mt-0"
         >
           <h1 

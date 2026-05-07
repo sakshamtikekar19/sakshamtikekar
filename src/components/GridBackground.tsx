@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useMemo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function GridBackground() {
@@ -31,22 +32,41 @@ export default function GridBackground() {
 
       {/* Subtle Binary Streams */}
       <div className="absolute inset-0 opacity-[0.03] select-none font-mono text-[9px] text-blue-400">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{ y: -200 }}
-            animate={{ y: 1200 }}
-            transition={{ duration: Math.random() * 15 + 20, repeat: Infinity, ease: "linear", delay: Math.random() * 10 }}
-            className="absolute whitespace-nowrap"
-            style={{ left: `${i * 20}%` }}
-          >
-            {[...Array(60)].map(() => Math.round(Math.random())).join('')}
-          </motion.div>
-        ))}
+        <BinaryStreams count={6} />
       </div>
       
       {/* Noise Overlay */}
       <div className="absolute inset-0 opacity-[0.015] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
     </div>
+  );
+}
+
+function BinaryStreams({ count }: { count: number }) {
+  const [mounted, setMounted] = useState(false);
+  const streams = useMemo(() => {
+    return [...Array(count)].map(() => [...Array(60)].map(() => Math.round(Math.random())).join(''));
+  }, [count]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  return (
+    <>
+      {streams.map((stream, i) => (
+        <motion.div
+          key={i}
+          initial={{ y: -200 }}
+          animate={{ y: 1200 }}
+          transition={{ duration: Math.random() * 15 + 20, repeat: Infinity, ease: "linear", delay: Math.random() * 10 }}
+          className="absolute whitespace-nowrap"
+          style={{ left: `${i * 20}%` }}
+        >
+          {stream}
+        </motion.div>
+      ))}
+    </>
   );
 }
