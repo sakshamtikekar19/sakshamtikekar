@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { portfolioData } from "@/data/portfolio";
@@ -68,6 +69,15 @@ export default function AboutPage() {
                <p className="text-white/60 leading-relaxed italic mb-8">
                  "My background helps me understand both user experience and execution quality. I’m a fast learner focused on building impactful and scalable web solutions."
                </p>
+               <div className="mb-8">
+                 <Link 
+                   href="#" 
+                   target="_blank"
+                   className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-black rounded-xl hover:bg-blue-500 transition-all uppercase tracking-widest text-xs"
+                 >
+                   Download Resume
+                 </Link>
+               </div>
                <div className="flex items-center gap-4 border-t border-white/5 pt-8">
                  <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/20">
                    <Image 

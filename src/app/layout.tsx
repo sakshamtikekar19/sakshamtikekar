@@ -19,9 +19,16 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Saksham Tikekar | Freelance Full Stack Web Developer",
-  description: "Freelance Web Developer with experience in SEO-optimized websites and AI-powered solutions. Transitioning to full-time roles for growth and stability.",
-  keywords: ["Web Developer", "React.js", "Next.js", "Full Stack", "Saksham Tikekar", "Freelance Developer"],
+  title: "Saksham Tikekar | Digital Blueprint | Full Stack Developer",
+  description: "High-performance full stack web development and AI-powered solutions. Expert in Next.js, React, and SEO-optimized digital experiences. Looking for innovative teams.",
+  keywords: ["Full Stack Developer", "Next.js Expert", "React.js Developer", "AI Solutions", "Saksham Tikekar", "Freelance Web Developer India", "HUD Portfolio"],
+  openGraph: {
+    title: "Saksham Tikekar | Digital Blueprint",
+    description: "Building high-conversion websites & AI-powered solutions.",
+    type: "website",
+    locale: "en_US",
+    url: "https://sakshamtikekar19.github.io/sakshamtikekar/",
+  },
 };
 
 export default function RootLayout({

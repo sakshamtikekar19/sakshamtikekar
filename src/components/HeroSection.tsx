@@ -236,6 +236,17 @@ export default function HeroSection() {
     >
       <div className="film-grain" />
 
+      {/* LCP Optimization: Preload the main portrait image */}
+      <div className="sr-only">
+        <NextImage 
+          src={`${BASE_PATH}/saksham.png`} 
+          alt="Saksham Tikekar" 
+          width={10} 
+          height={10} 
+          priority 
+        />
+      </div>
+
       {/* 3D Scene */}
       <div className="absolute inset-0 z-10 pointer-events-none" suppressHydrationWarning>
         <Canvas 
@@ -327,13 +338,22 @@ export default function HeroSection() {
             >
               &lt;FULL<br/>STACK/&gt;
             </h3>
-            <Link 
-              href="https://wa.me/918454069522"
-              target="_blank"
-              className="btn-liquid px-4 py-2 border border-white/20 text-white rounded-full font-bold pointer-events-auto text-[10px] md:text-base inline-block font-space"
-            >
-              Hire Me
-            </Link>
+            <div className="flex gap-4 justify-end">
+              <Link 
+                href="https://wa.me/918454069522"
+                target="_blank"
+                className="btn-liquid px-4 py-2 border border-white/20 text-white rounded-full font-bold pointer-events-auto text-[10px] md:text-base inline-block font-space"
+              >
+                Hire Me
+              </Link>
+              <Link 
+                href="#"
+                target="_blank"
+                className="px-4 py-2 border border-blue-500/50 bg-blue-500/10 text-blue-400 rounded-full font-bold pointer-events-auto text-[10px] md:text-base inline-block font-space hover:bg-blue-500 hover:text-white transition-all"
+              >
+                Download CV
+              </Link>
+            </div>
           </motion.div>
         </div>
 
