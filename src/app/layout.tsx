@@ -7,6 +7,7 @@ import GridBackground from "@/components/GridBackground";
 import WhatsAppCTA from "@/components/WhatsAppCTA";
 
 import CursorGlow from "@/components/CursorGlow";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({
   variable: "--font-inter",
@@ -39,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased bg-background text-foreground selection:bg-accent/30`}>
+        <GoogleAnalytics gaId="G-XXXXXXXXXX" />
         <GridBackground />
         <WhatsAppCTA />
         <CursorGlow />
