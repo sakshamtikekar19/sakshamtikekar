@@ -347,7 +347,7 @@ export default function HeroSection() {
                 Hire Me
               </Link>
               <Link 
-                href={`${BASE_PATH}/resume.pdf`}
+                href="/resume.pdf"
                 target="_blank"
                 className="px-4 py-2 border border-blue-500/50 bg-blue-500/10 text-blue-400 rounded-full font-bold pointer-events-auto text-[10px] md:text-base inline-block font-space hover:bg-blue-500 hover:text-white transition-all"
               >
