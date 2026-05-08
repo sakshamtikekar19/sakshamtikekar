@@ -67,9 +67,9 @@ const PortraitPlane = ({ textureUrl, onHoverChange, scrollYProgress, tiltX, tilt
   useFrame((state) => {
     const { x, y } = state.mouse;
     
-    // Increased sensitivity for mobile gyro with hard limits
-    const targetRotX = THREE.MathUtils.clamp(isMobile ? -tiltY.get() * 0.4 : -y * 0.15, -0.25, 0.25);
-    const targetRotY = THREE.MathUtils.clamp(isMobile ? tiltX.get() * 0.4 : x * 0.15, -0.25, 0.25);
+    // High performance sensitivity for mobile gyro with expanded safe limits
+    const targetRotX = THREE.MathUtils.clamp(isMobile ? -tiltY.get() * 0.5 : -y * 0.15, -0.45, 0.45);
+    const targetRotY = THREE.MathUtils.clamp(isMobile ? tiltX.get() * 0.5 : x * 0.15, -0.45, 0.45);
 
     meshRef.current.rotation.x = THREE.MathUtils.lerp(meshRef.current.rotation.x, targetRotX, 0.1);
     meshRef.current.rotation.y = THREE.MathUtils.lerp(meshRef.current.rotation.y, targetRotY, 0.1);
@@ -189,10 +189,10 @@ export default function HeroSection() {
       if (!isMobile) return;
       const { beta, gamma } = e;
       if (beta !== null && gamma !== null) {
-        // High sensitivity normalization with safe clamping
-        // beta: 90 is upright, 0 is flat. Centering at ~70.
-        tiltX.set(THREE.MathUtils.clamp(gamma / 15, -0.8, 0.8));
-        tiltY.set(THREE.MathUtils.clamp((beta - 70) / 15, -0.8, 0.8));
+        // Increased range for more pronounced tilting
+        // beta: 90 is upright, 0 is flat. Centering at ~60 for better range.
+        tiltX.set(THREE.MathUtils.clamp(gamma / 12, -1.2, 1.2));
+        tiltY.set(THREE.MathUtils.clamp((beta - 60) / 12, -1.2, 1.2));
       }
     };
 
