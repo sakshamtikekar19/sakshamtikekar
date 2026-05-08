@@ -47,10 +47,10 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-xl border-b border-black/5 px-6 py-3 pointer-events-auto">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[#050505]/80 backdrop-blur-xl border-b border-white/5 px-6 py-3 pointer-events-auto">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Header HUD - Left Side */}
-        <div className="flex flex-col gap-0.5 font-mono text-[7px] md:text-[8px] uppercase tracking-widest text-black leading-tight">
+        <div className="flex flex-col gap-0.5 font-mono text-[7px] md:text-[8px] uppercase tracking-widest text-white leading-tight">
           <div className="flex items-center gap-1.5">
             <span className="w-1 h-1 bg-blue-600 rounded-full animate-pulse" />
             <span className="font-bold">CORE_SYS: ACTIVE</span>
@@ -60,7 +60,7 @@ export default function Navbar() {
             <span>LAT: 12ms</span>
             <span className="hidden sm:inline">V4.0</span>
           </div>
-          <div className="font-black text-[8px] md:text-[9px] mt-0.5">
+          <div className="font-black text-[8px] md:text-[9px] mt-0.5 text-blue-500">
             T: {time || "00:00:00"}
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function Navbar() {
         {/* Nav Links - Desktop Only (Center/Right) */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
-            <Link key={link.name} href={link.href} className="text-sm font-bold text-black hover:text-blue-600 transition-colors tracking-tighter uppercase font-space">
+            <Link key={link.name} href={link.href} className="text-sm font-bold text-white/70 hover:text-blue-500 transition-colors tracking-tighter uppercase font-space">
               {link.name}
             </Link>
           ))}
@@ -76,14 +76,14 @@ export default function Navbar() {
 
         {/* Social Icons */}
         <div className="hidden md:flex items-center gap-6">
-          <Link href="https://www.linkedin.com/in/saksham-tikekar-0778721b9" target="_blank" className="text-black hover:text-blue-600 transition-colors"><LinkedInIcon size={22} /></Link>
-          <Link href="https://wa.me/918454069522" target="_blank" className="text-black hover:text-green-600 transition-colors"><MessageCircle size={22} /></Link>
-          <Link href="mailto:saksham.tikekar19@gmail.com" className="text-black hover:text-gray-600 transition-colors"><Mail size={22} /></Link>
+          <Link href="https://www.linkedin.com/in/saksham-tikekar-0778721b9" target="_blank" className="text-white/40 hover:text-blue-500 transition-colors"><LinkedInIcon size={22} /></Link>
+          <Link href="https://wa.me/918454069522" target="_blank" className="text-white/40 hover:text-green-500 transition-colors"><MessageCircle size={22} /></Link>
+          <Link href="mailto:saksham.tikekar19@gmail.com" className="text-white/40 hover:text-white transition-colors"><Mail size={22} /></Link>
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-black p-2"
+          className="md:hidden text-white p-2"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -97,22 +97,22 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute top-full left-0 right-0 bg-white/98 backdrop-blur-2xl border-t border-black/5 p-8 flex flex-col items-center gap-6 md:hidden shadow-2xl"
+            className="absolute top-full left-0 right-0 bg-[#050505]/95 backdrop-blur-2xl border-t border-white/5 p-8 flex flex-col items-center gap-6 md:hidden shadow-2xl"
           >
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-xl font-extrabold text-black hover:text-blue-600 uppercase tracking-tighter font-space"
+                className="text-xl font-extrabold text-white hover:text-blue-500 uppercase tracking-tighter font-space"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
               </Link>
             ))}
-            <div className="flex gap-8 pt-6 border-t w-full justify-center border-black/5">
-              <Link href="https://www.linkedin.com/in/saksham-tikekar-0778721b9" target="_blank" className="text-black/30 hover:text-blue-600"><LinkedInIcon size={28} /></Link>
-              <Link href="https://wa.me/918454069522" target="_blank" className="text-black/30 hover:text-green-600"><MessageCircle size={28} /></Link>
-              <Link href="mailto:saksham.tikekar19@gmail.com" className="text-black/30 hover:text-black"><Mail size={28} /></Link>
+            <div className="flex gap-8 pt-6 border-t w-full justify-center border-white/5">
+              <Link href="https://www.linkedin.com/in/saksham-tikekar-0778721b9" target="_blank" className="text-white/30 hover:text-blue-500"><LinkedInIcon size={28} /></Link>
+              <Link href="https://wa.me/918454069522" target="_blank" className="text-white/30 hover:text-green-500"><MessageCircle size={28} /></Link>
+              <Link href="mailto:saksham.tikekar19@gmail.com" className="text-white/30 hover:text-white"><Mail size={28} /></Link>
             </div>
           </motion.div>
         )}
