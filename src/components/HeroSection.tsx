@@ -231,7 +231,7 @@ export default function HeroSection() {
     <section 
       ref={containerRef} 
       className="relative min-h-[100svh] w-screen bg-[#050505] overflow-hidden flex flex-col md:block cursor-none"
-      style={{ touchAction: "none" }}
+      style={{ touchAction: "pan-y" }}
     >
       <div className="film-grain" />
 
