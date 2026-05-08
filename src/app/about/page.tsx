@@ -71,7 +71,7 @@ export default function AboutPage() {
                </p>
                <div className="mb-8">
                  <Link 
-                   href="#" 
+                   href={`${BASE_PATH}/resume.pdf`} 
                    target="_blank"
                    className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-black rounded-xl hover:bg-blue-500 transition-all uppercase tracking-widest text-xs"
                  >
