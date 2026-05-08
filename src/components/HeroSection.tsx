@@ -60,18 +60,16 @@ const DigitalDust = ({ count = 1200, tiltX, tiltY }: { count?: number, tiltX: an
 };
 
 // --- Portrait Plane ---
-const PortraitPlane = ({ textureUrl, onHoverChange, scrollYProgress, tiltX, tiltY }: { textureUrl: string, onHoverChange: (hovered: boolean) => void, scrollYProgress: any, tiltX: any, tiltY: any }) => {
+const PortraitPlane = ({ textureUrl, onHoverChange, scrollYProgress, tiltX, tiltY, isMobile }: { textureUrl: string, onHoverChange: (hovered: boolean) => void, scrollYProgress: any, tiltX: any, tiltY: any, isMobile: boolean }) => {
   const meshRef = useRef<THREE.Mesh>(null!);
   const texture = useTexture(textureUrl);
-  const { viewport } = useThree();
-  const isMobile = viewport.width < 5;
   
   useFrame((state) => {
     const { x, y } = state.mouse;
     
-    // Merge mouse and gyro
-    const targetRotX = isMobile ? -tiltY.get() * 0.1 : -y * 0.15;
-    const targetRotY = isMobile ? tiltX.get() * 0.1 : x * 0.15;
+    // Increased sensitivity for mobile gyro
+    const targetRotX = isMobile ? -tiltY.get() * 0.4 : -y * 0.15;
+    const targetRotY = isMobile ? tiltX.get() * 0.4 : x * 0.15;
 
     meshRef.current.rotation.x = THREE.MathUtils.lerp(meshRef.current.rotation.x, targetRotX, 0.1);
     meshRef.current.rotation.y = THREE.MathUtils.lerp(meshRef.current.rotation.y, targetRotY, 0.1);
@@ -189,9 +187,11 @@ export default function HeroSection() {
     
     const handleOrientation = (e: DeviceOrientationEvent) => {
       if (!isMobile) return;
-      if (e.gamma !== null && e.beta !== null) {
-        tiltX.set(THREE.MathUtils.clamp(e.gamma / 30, -1, 1));
-        tiltY.set(THREE.MathUtils.clamp((e.beta - 45) / 30, -1, 1));
+      const { beta, gamma } = e;
+      if (beta !== null && gamma !== null) {
+        // High sensitivity normalization
+        tiltX.set(gamma / 15);
+        tiltY.set((beta - 20) / 15);
       }
     };
 
@@ -254,7 +254,14 @@ export default function HeroSection() {
             <DigitalDust count={isMobile ? 400 : 800} tiltX={tiltX} tiltY={tiltY} />
             <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
               <group position={[0, 0, 0]}>
-                <PortraitPlane textureUrl={`${BASE_PATH}/saksham.png`} onHoverChange={setIsHoveringImage} scrollYProgress={scrollYProgress} tiltX={tiltX} tiltY={tiltY} />
+                <PortraitPlane 
+                  textureUrl={`${BASE_PATH}/saksham.png`} 
+                  onHoverChange={setIsHoveringImage} 
+                  scrollYProgress={scrollYProgress} 
+                  tiltX={tiltX} 
+                  tiltY={tiltY} 
+                  isMobile={isMobile}
+                />
                 <group position={[0, isMobile ? -1.8 : -3.2, 0.5]}>
                   <Text
                     fontSize={isMobile ? 0.07 : 0.12}

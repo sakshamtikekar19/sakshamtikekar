@@ -85,17 +85,6 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="mt-16 pt-16 border-t border-white/5">
-              <h3 className="text-xl font-bold mb-8 text-white uppercase tracking-widest text-xs">Follow My Work</h3>
-              <div className="flex gap-6">
-                <a href={portfolioData.socials.github} className="p-4 rounded-full bg-white/5 hover:bg-blue-600 hover:text-white transition-all">
-                  <Code2 size={24} />
-                </a>
-                <a href={portfolioData.socials.twitter} className="p-4 rounded-full bg-white/5 hover:bg-blue-600 hover:text-white transition-all">
-                  <Globe size={24} />
-                </a>
-              </div>
-            </div>
           </div>
 
           {/* Contact Form */}
