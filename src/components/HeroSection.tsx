@@ -67,9 +67,9 @@ const PortraitPlane = ({ textureUrl, onHoverChange, scrollYProgress, tiltX, tilt
   useFrame((state) => {
     const { x, y } = state.mouse;
     
-    // Increased sensitivity for mobile gyro
-    const targetRotX = isMobile ? -tiltY.get() * 0.4 : -y * 0.15;
-    const targetRotY = isMobile ? tiltX.get() * 0.4 : x * 0.15;
+    // Increased sensitivity for mobile gyro with hard limits
+    const targetRotX = THREE.MathUtils.clamp(isMobile ? -tiltY.get() * 0.4 : -y * 0.15, -0.25, 0.25);
+    const targetRotY = THREE.MathUtils.clamp(isMobile ? tiltX.get() * 0.4 : x * 0.15, -0.25, 0.25);
 
     meshRef.current.rotation.x = THREE.MathUtils.lerp(meshRef.current.rotation.x, targetRotX, 0.1);
     meshRef.current.rotation.y = THREE.MathUtils.lerp(meshRef.current.rotation.y, targetRotY, 0.1);
@@ -189,9 +189,10 @@ export default function HeroSection() {
       if (!isMobile) return;
       const { beta, gamma } = e;
       if (beta !== null && gamma !== null) {
-        // High sensitivity normalization
-        tiltX.set(gamma / 15);
-        tiltY.set((beta - 20) / 15);
+        // High sensitivity normalization with safe clamping
+        // beta: 90 is upright, 0 is flat. Centering at ~70.
+        tiltX.set(THREE.MathUtils.clamp(gamma / 15, -0.8, 0.8));
+        tiltY.set(THREE.MathUtils.clamp((beta - 70) / 15, -0.8, 0.8));
       }
     };
 
